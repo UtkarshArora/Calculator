@@ -1,0 +1,55 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /** font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; **/
+    font-weight: bold;
+}
+body{
+    padding:0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+.Calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;          /** align-content instead of align-items since we want to align the entire calculator and not just the indivdual button **/
+    min-height: 100vh;                                 /** cover all the vh for the page **/
+    grid-template-columns: repeat(4,100px);             /** 4 columns with each of height 100px**/ 
+    grid-template-rows: minmax(120px,auto) repeat(5,100px);      /** we want minimum row height of 120px and maximum can be anything so we set that to auto**/
+}
+.Calculator-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline:none;                      
+    background-color: rgba(255, 255, 255, 0.75);                       
+}
+
+.Calculator-grid>button:hover{
+    background-color:rgba(255,255,255,0.9);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+.output{
+    grid-column: 1/-1;       /** span the columns from 1 to -1, which is the last column **/
+    background-color:rgba(0,0,0,0.75);
+    display: flex;
+    align-items: flex-end;    /** aligns items at the bottom of the container **/
+    justify-content: space-around;      /** display flex items with space between the lines, and around the elements, away from the top and bottom **/
+    flex-direction: column;   /** align the items vertically at the right end **/
+    padding:10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand{
+    color:rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand{
+    color:white;
+    font-size:2.5rem;
+}
